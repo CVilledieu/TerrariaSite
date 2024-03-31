@@ -1,9 +1,15 @@
 package main
 
 import (
+	info "Terraria/info"
 	"fmt"
+	"log"
 )
 
 func main() {
-	fmt.Println("Hello, World!")
+	newItem, err := info.GetItemInfo()
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(newItem)
 }

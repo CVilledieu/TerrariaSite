@@ -1,6 +1,6 @@
-package resources
+package items
 
-type item struct {
+type ItemInfo struct {
 
 	// Fields that apply to all items
 	Name      string       `json:"name"`
