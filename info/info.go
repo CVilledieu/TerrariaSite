@@ -3,6 +3,8 @@ package info
 import (
 	items "Terraria/info/resources/items"
 	monsters "Terraria/info/resources/monsters"
+	"encoding/json"
+	"os"
 )
 
 func GetBossInfo(name string) (string, error) {
@@ -11,12 +13,15 @@ func GetBossInfo(name string) (string, error) {
 	return monster.Name, nil
 }
 
-func GetItemInfo() (items.ItemInfo, error) {
+func GetItemInfo() (*items.ItemInfo, error) {
+	jsonFile, _ := os.ReadFile("./items/itemdb/tools.json")
 	var item items.ItemInfo
-	item.Name = "Sword"
-	item.SellPrice = 10
-	item.StackSize = 1
-	return item, nil
+	err := json.Unmarshal(jsonFile, &item) //
+	if err != nil {
+		return nil, err
+	}
+
+	return &item, nil
 
 }
 

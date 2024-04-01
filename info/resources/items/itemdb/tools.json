@@ -1,0 +1,28 @@
+{
+    "name": "Copper Pickaxe",
+        "ItemSpecs": {
+            "type": "tool",
+
+            "tool_info": {
+                "tool_speed": 15,
+                "tool_damage": 4,
+                "power": 35,
+                "minable_ores": ["copper_ore"]                
+            },
+
+            "recipies": {
+                "used_to_craft": [""],
+                "crafted_from":[{
+                    "name": "copper_bar",
+                    "amount": 12                
+                }],
+                "crafted_at": ["workbench"]
+            },
+
+            "tool_tip": "A pickaxe made from copper",
+            "difficulty": "pre hardmode"
+        },
+
+        "sell_price": 10,
+        "stack_size": 1
+}
