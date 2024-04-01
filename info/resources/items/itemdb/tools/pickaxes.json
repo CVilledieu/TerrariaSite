@@ -1,0 +1,116 @@
+[{
+    "general_info": {
+        "id": 1,
+        "name": "Copper Pickaxe",
+        "sell_price": 100, 
+        "stack_size": 1, 
+        "use_time": 23, 
+        "type": "tool",
+        "secondary_type": "pickaxe",
+        "tool_tip": "",
+        "difficulty": "pre hardmode",
+        "recipies": {
+            "used_to_craft": [""],
+            "crafted_from":[{
+                "type": "ore_bar",
+                "id": 1,
+                "name": "copper_bar",
+                "amount": 8                
+            }, {
+                "type": "wood",
+                "id": 0,
+                "name": "Any Wood",
+                "amount": 4                
+            }],
+            "crafted_at": [{
+                "type": "workbench",
+                "id": 1,
+                "name": "workbench",
+                "amount": 1                
+            }]            
+        }
+    },
+    "critical_strike_chance": 4,
+    "tool_speed": 15,
+    "tool_damage": 4,
+    "power": 35,
+    "minable_ores": ["copper_ore"]  
+},
+
+{
+    "general_info": {
+        "id": 2,
+        "name": "Tin Pickaxe",
+        "sell_price": 150, 
+        "stack_size": 1, 
+        "use_time": 21, 
+        "type": "tool",
+        "secondary_type": "pickaxe",
+        "tool_tip": "",
+        "difficulty": "pre hardmode",
+        "recipies": {
+            "used_to_craft": [""],
+            "crafted_from":[{
+                "type": "tin_bar",
+                "id": 2,
+                "name": "tin_bar",
+                "amount": 8                
+            }, {
+                "type": "wood",
+                "id": 0,
+                "name": "Any Wood",
+                "amount": 4                
+            }],
+            "crafted_at": [{
+                "type": "workbench",
+                "id": 1,
+                "name": "workbench",
+                "amount": 1                
+            }]            
+        }
+    },
+    "critical_strike_chance": 4,
+    "tool_speed": 15,
+    "tool_damage": 4,
+    "power": 35,
+    "minable_ores": ["copper_ore"]  
+},
+{
+    "general_info": {
+        "id": 3,
+        "name": "Tin Pickaxe",
+        "sell_price": 150, 
+        "stack_size": 1, 
+        "use_time": 21, 
+        "type": "tool",
+        "secondary_type": "pickaxe",
+        "tool_tip": "",
+        "difficulty": "pre hardmode",
+        "recipies": {
+            "used_to_craft": [""],
+            "crafted_from":[{
+                "type": "tin_bar",
+                "id": 2,
+                "name": "tin_bar",
+                "amount": 8                
+            }, {
+                "type": "wood",
+                "id": 0,
+                "name": "Any Wood",
+                "amount": 4                
+            }],
+            "crafted_at": [{
+                "type": "workbench",
+                "id": 1,
+                "name": "workbench",
+                "amount": 1                
+            }]            
+        }
+    },
+    "critical_strike_chance": 4,
+    "tool_speed": 15,
+    "tool_damage": 4,
+    "power": 35,
+    "minable_ores": ["copper_ore"]  
+}
+]
