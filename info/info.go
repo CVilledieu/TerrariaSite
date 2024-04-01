@@ -11,12 +11,12 @@ func GetBossInfo(name string) (string, error) {
 	return monster.Name, nil
 }
 
-func GetItemInfo() (*items.ItemInfo, error) {
+func GetItemInfo() (items.ItemInfo, error) {
 	var item items.ItemInfo
 	item.Name = "Sword"
 	item.SellPrice = 10
 	item.StackSize = 1
-	return &item, nil
+	return item, nil
 
 }
 
