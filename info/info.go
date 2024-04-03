@@ -12,13 +12,14 @@ const (
 	path = "info/resources/items/itemdb/"
 )
 
-func GetBossInfo(name string) (string, error) {
+func GetBossInfo(bossname string) (string, error) {
 	var monster monsters.MonsterInfo
 	monster.Name = name
 	return monster.Name, nil
 }
 
-func GetToolInfo() (*items.Tool, error) {
+func GetToolInfo(toolname string) (*items.Tool, error) {
+
 	jsonFile, _ := os.ReadFile(path + "tools.json")
 	var item items.Tool
 	err := json.Unmarshal(jsonFile, &item) //
@@ -30,7 +31,7 @@ func GetToolInfo() (*items.Tool, error) {
 
 }
 
-func GetWeaponInfo() (*items.Weapon, error) {
+func GetWeaponInfo(weaponname string) (*items.Weapon, error) {
 	jsonFile, _ := os.ReadFile("./items/itemdb/weapons.json")
 	var item items.Weapon
 	err := json.Unmarshal(jsonFile, &item) //
@@ -42,7 +43,7 @@ func GetWeaponInfo() (*items.Weapon, error) {
 
 }
 
-func GetArmorInfo() (*items.Armor, error) {
+func GetArmorInfo(armorname string) (*items.Armor, error) {
 	jsonFile, _ := os.ReadFile("./items/itemdb/armor.json")
 	var item items.Armor
 	err := json.Unmarshal(jsonFile, &item) //

@@ -8,4 +8,5 @@ func StartServer() {
 		w.Write([]byte("Hello World"))
 	})
 	http.ListenAndServe(":8080", nil)
+	http.Handle("/tool", toolHandler)
 }
