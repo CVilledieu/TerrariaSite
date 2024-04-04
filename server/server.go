@@ -10,3 +10,7 @@ func StartServer() {
 	http.ListenAndServe(":8080", nil)
 	http.Handle("/tool", toolHandler)
 }
+
+func toolHandler(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte("This is the tool handler"))
+}
