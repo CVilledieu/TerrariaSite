@@ -14,7 +14,7 @@ const (
 
 func GetBossInfo(bossname string) (string, error) {
 	var monster monsters.MonsterInfo
-	monster.Name = name
+	//monster.Name = name
 	return monster.Name, nil
 }
 
