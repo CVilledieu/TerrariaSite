@@ -12,6 +12,18 @@ const (
 	path = "info/resources/items/itemdb/"
 )
 
+type Player struct {
+	WeaponData items.Weapon
+	ToolData   *items.Tool
+	ArmorData  items.Armor
+}
+
+type NonPlayer struct {
+}
+
+type NPC struct {
+}
+
 func GetBossInfo(bossname string) (string, error) {
 	var monster monsters.MonsterInfo
 	//monster.Name = name
