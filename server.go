@@ -1,7 +1,8 @@
 package main
 
 import (
-	info "Terraria/info"
+	//info "Terraria/info"
+	"Terraria/info"
 	"io"
 	"text/template"
 
@@ -19,6 +20,12 @@ type (
 )
 
 type Page struct {
+	Search Search
+}
+
+type Search struct {
+	lookup  string
+	catalog string
 }
 
 func (t *Templates) Render(w io.Writer, name string, data interface{}, c echo.Context) error {
@@ -32,20 +39,15 @@ func newTemplate() *Templates {
 	}
 }
 
-func newSearch(itemType, itemName string) (PlayerItems, error) {
-	if itemType == "tool" {
-		newSearch := PlayerItems{}
-		item, err := info.GetToolInfo(itemName)
-		if err != nil {
-			return PlayerItems{}, err
-		}
-		newSearch.ToolData = item
-		return newSearch, nil
+func newPage() Page {
+	return Page{
+		Search: newSeach(),
 	}
-
-	return item, nil
 }
 
-func newPage() Page {
-	return Page{}
+func newSearch() Search {
+	return Search{
+		lookup:  "",
+		catalog: "",
+	}
 }

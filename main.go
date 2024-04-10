@@ -1,22 +1,11 @@
 package main
 
 import (
-	info "Terraria/info"
-
-	"log"
-
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 )
 
 func main() {
-
-	item, err := info.GetToolInfo("Tin Pickaxe")
-	if err != nil {
-		log.Fatal(err)
-	}
-	log.Println(item)
-
 	e := echo.New()
 	e.Use(middleware.Logger())
 	page := newPage()

@@ -13,22 +13,16 @@
 <body>  
     <div id="content">
         {{ template "searchbar" . }}
-        <div id="count">
-            {{template "count" . }}
-        </div>
-        <button hx-target="#count" hx-post="/count" >NGU</button>
     </div>    
 </body>
 </html>
 {{ end }}
 
-{{ block "count" .}}
-    Count {{ .Count }}
-{{ end }}
 
 {{ block "searchbar" . }}
-    <div id="searchbar">
-        <form id="searchbar" name="item">{{ .item }}</form>
-        <button type="submit"> Search </button>
-    </div>
+<form id="searchbar" hx-get="/search">
+    <input value="{{ .Search }}" type="text" name="searchbar" />
+    <button type="submit">Search</button>
+</form>
 {{ end }}
+
