@@ -15,7 +15,8 @@ func main() {
 		return c.Render(200, "index", page)
 	})
 
-	e.GET("/tools", func(c echo.Context) error {
+	e.GET("/search", func(c echo.Context) error {
+		results := searchResults("name")
 		return c.Render(200, "results", results)
 	})
 

@@ -37,7 +37,7 @@ type Page struct {
 
 func newPage() Page {
 	return Page{
-		Search: newSearch(),
+		Search: searchResults("set up"),
 	}
 }
 
@@ -46,11 +46,15 @@ type Search struct {
 	catalog string
 }
 
-func newSearch() Search {
-	return Search{
-		lookup:  "",
-		catalog: "",
+func searchResults(name string) Search {
+	if name == "set up" {
+		return Search{
+			lookup:  "",
+			catalog: "",
+		}
 	}
+	results := //search item
+	return results	
 }
 
 type Results struct {
@@ -59,3 +63,5 @@ type Results struct {
 	Cost    int64
 	ToolTip string
 }
+
+
