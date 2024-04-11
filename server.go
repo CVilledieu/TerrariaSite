@@ -19,15 +19,6 @@ type (
 	NPC            info.NPC
 )
 
-type Page struct {
-	Search Search
-}
-
-type Search struct {
-	lookup  string
-	catalog string
-}
-
 func (t *Templates) Render(w io.Writer, name string, data interface{}, c echo.Context) error {
 	return t.templates.ExecuteTemplate(w, name, data)
 
@@ -39,10 +30,20 @@ func newTemplate() *Templates {
 	}
 }
 
+type Page struct {
+	Search  Search
+	Results Results
+}
+
 func newPage() Page {
 	return Page{
-		Search: newSeach(),
+		Search: newSearch(),
 	}
+}
+
+type Search struct {
+	lookup  string
+	catalog string
 }
 
 func newSearch() Search {
@@ -50,4 +51,11 @@ func newSearch() Search {
 		lookup:  "",
 		catalog: "",
 	}
+}
+
+type Results struct {
+	Id      int64
+	Name    string
+	Cost    int64
+	ToolTip string
 }

@@ -1,5 +1,4 @@
 {{ block "index" . }}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,9 +10,12 @@
 
 </head>
 <body>  
-    <div id="content">
+    <div id="header">
         {{ template "searchbar" . }}
-    </div>    
+    </div> 
+    <div id="content">
+        {{ template "results" . }}
+    </div>  
 </body>
 </html>
 {{ end }}
@@ -26,3 +28,8 @@
 </form>
 {{ end }}
 
+{{ block "results" . }}
+<div>
+    {{ ".item" }}
+</div>
+{{ end }}

@@ -16,7 +16,7 @@ func main() {
 	})
 
 	e.GET("/tools", func(c echo.Context) error {
-		return c.Render(200, "tools", Count)
+		return c.Render(200, "results", results)
 	})
 
 	e.POST("/count", func(c echo.Context) error {
