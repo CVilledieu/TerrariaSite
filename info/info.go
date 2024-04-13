@@ -43,7 +43,7 @@ func GetItem(name string) {
 	fmt.Println(item)
 }
 
-func GetItemByName(name string, record [][]string) Item {
+func getItemByName(name string, record [][]string) Item {
 	foundItem := Item{}
 
 	for i := 2; i < len(record); i++ {
@@ -53,4 +53,22 @@ func GetItemByName(name string, record [][]string) Item {
 	}
 
 	return foundItem
+}
+
+func getFullInfo(name string, record [][]string) [][]string {
+	var fullInfo [][]string
+
+	for i := 2; i < len(record); i++ {
+		if record[i][1] == "name" {
+			for j, detail := range record[i] {
+				if detail != "-" {
+					fullInfo[len(fullInfo)] = make([]string, 2)
+					title := record[0][j]
+					fullInfo[0] = title
+					fullInfo[1] = record[i][j]
+				}
+			}
+		}
+	}
+	return fullInfo
 }
