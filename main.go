@@ -7,7 +7,7 @@ import (
 
 func main() {
 	//startServer()
-	items := info.LoadAllItems()
+	items := info.GetItem("Silver Bow")
 	fmt.Println(items)
 }
 

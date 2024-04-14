@@ -2,10 +2,8 @@ package main
 
 import (
 	//info "Terraria/info"
-	"Terraria/info"
-	"fmt"
+
 	"io"
-	"log"
 	"text/template"
 
 	"github.com/labstack/echo/v4"
@@ -15,12 +13,6 @@ import (
 type Templates struct {
 	templates *template.Template
 }
-
-type (
-	PlayerItems    info.Player
-	NonPlayerItems info.NonPlayer
-	NPC            info.NPC
-)
 
 func (t *Templates) Render(w io.Writer, name string, data interface{}, c echo.Context) error {
 	return t.templates.ExecuteTemplate(w, name, data)
@@ -40,7 +32,7 @@ type Page struct {
 
 func newPage() Page {
 	return Page{
-		Search: searchResults("set up"),
+		//Search: searchResults("set up"),
 	}
 }
 
@@ -66,19 +58,21 @@ func startServer() {
 		return c.Render(200, "index", page)
 	})
 
-	e.GET("/search", func(c echo.Context) error {
-		results := searchResults("name")
-		_, err := fmt.Println(results)
-		if err != nil {
-			log.Fatal(err)
-		}
-		//return c.Render(200, "results", results)
-	})
+	/*
+		e.GET("/search", func(c echo.Context) error {
+			results := searchResults("name")
+			_, err := fmt.Println(results)
+			if err != nil {
+				log.Fatal(err)
+			}
+			//return c.Render(200, "results", results)
+		})
 
-	e.POST("/count", func(c echo.Context) error {
-		//Count.Count++
-		//return c.Render(200, "count", Count)
-	})
+		e.POST("/count", func(c echo.Context) error {
+			//Count.Count++
+			//return c.Render(200, "count", Count)
+		})
 
-	e.Logger.Fatal(e.Start(":8080"))
+		e.Logger.Fatal(e.Start(":8080"))
+	*/
 }

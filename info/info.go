@@ -4,7 +4,6 @@ import (
 	//items "Terraria/info/resources/items"
 	//monsters "Terraria/info/resources/monsters"
 	"encoding/csv"
-	"fmt"
 	"log"
 	"os"
 )
@@ -15,15 +14,13 @@ const (
 )
 
 type Item struct {
-	Id         string
-	Name       string
-	Value      string
-	FlavorText string
-	StackSize  string
+	Id          string
+	Name        string
+	OtherValues [][]string
 }
 
 func ReadAllCSV() [][]string {
-	file, err := os.Open("info/resources/items/items.csv")
+	file, err := os.Open("info/resources/items.csv")
 	if err != nil {
 		panic(err)
 	}
@@ -37,38 +34,31 @@ func ReadAllCSV() [][]string {
 	return record
 }
 
-func GetItem(name string) {
+func GetItem(name string) Item {
 	record := ReadAllCSV()
-	item := GetItemByName(name, record)
-	fmt.Println(item)
+	item := getItemByName(name, record)
+	return item
 }
 
 func getItemByName(name string, record [][]string) Item {
-	foundItem := Item{}
-
+	foundItem := Item{Id: name}
 	for i := 2; i < len(record); i++ {
-		if record[i][1] == "name" {
-			fmt.Println(record[i])
+		if record[i][1] == name {
+			foundItem.Name = record[i][0]
+			foundItem.OtherValues = getItemInfo(i, record)
+			break
 		}
 	}
 
 	return foundItem
 }
 
-func getFullInfo(name string, record [][]string) [][]string {
-	var fullInfo [][]string
-
-	for i := 2; i < len(record); i++ {
-		if record[i][1] == "name" {
-			for j, detail := range record[i] {
-				if detail != "-" {
-					fullInfo[len(fullInfo)] = make([]string, 2)
-					title := record[0][j]
-					fullInfo[0] = title
-					fullInfo[1] = record[i][j]
-				}
-			}
+func getItemInfo(index int, record [][]string) [][]string {
+	var itemInfo [][]string
+	for i, attribute := range record[index] {
+		if attribute != "-" {
+			itemInfo = append(itemInfo, []string{record[0][i], attribute})
 		}
 	}
-	return fullInfo
+	return itemInfo
 }
