@@ -8,11 +8,6 @@ import (
 	"os"
 )
 
-const (
-	// ToolType is a constant that represents the type of item
-	path = "info/resources/items/itemdb/"
-)
-
 type Item struct {
 	Id          string
 	Name        string
@@ -49,7 +44,6 @@ func getItemByName(name string, record [][]string) Item {
 			break
 		}
 	}
-
 	return foundItem
 }
 
